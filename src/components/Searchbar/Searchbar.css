@@ -1,0 +1,32 @@
+.searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 250px;
+}
+
+.searchbar input {
+    border: none;
+    height: 100%;
+    width: 85%;
+    border-radius: 10px 0 0 10px;
+    padding-left: 10%;
+}
+
+.searchbar button {
+    height: 100%;
+    width: 15%;
+    background-color: white;
+    border: none;
+    background-image: url('../../../public/images/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    border-radius: 0 10px 10px 0;
+    transition: background-size 0.1s;
+}
+
+.searchbar button:hover {
+    background-size: 80%;
+}
