@@ -6,7 +6,7 @@ export const GetPokemonsContext = createContext();
 export const GetPokemonsProvider = ({children}) => {
 
     const [pokemons, setPokemons] = useState([]);
-    const pokemonsPerPage = 200;
+    const pokemonsPerPage = 50;
     const offset = 0;
 
     useEffect( () => { // useEffect responsável por alterar os componentes quando a API é chamada
