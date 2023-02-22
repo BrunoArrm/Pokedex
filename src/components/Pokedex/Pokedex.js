@@ -3,16 +3,14 @@ import "./Pokedex.css";
 import { GetPokemonsContext } from "../Context/GetPokemonContext";
 import PokemonCard from "../PokemonCard/PokemonCard";
 
-function Pokedex() {
-  const { pokemons } = useContext(GetPokemonsContext);
-
-  return (
-    <>
-      {pokemons.map((pokemon) => (
-        <PokemonCard name={pokemon.name} />
-      ))}
-    </>
-  );
-}
-
-export default Pokedex;
+export default function Pokedex() {
+    const { pokemons } = useContext(GetPokemonsContext);
+  
+    return (
+      <div className="pokedex">
+        {pokemons.map((pokemon, index) => (
+          <PokemonCard key={pokemon.name} name={pokemon.name} />
+        ))}
+      </div>
+    );
+  }

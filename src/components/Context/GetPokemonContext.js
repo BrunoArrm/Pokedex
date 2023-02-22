@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
-import { getPokemons } from '../Api/GetAllPokemons';
+import React, { useState, useEffect, createContext } from 'react';
+import { getPokemons } from '../Api/GetPokemonsAPI';
 
 export const GetPokemonsContext = createContext();
 
 export const GetPokemonsProvider = ({children}) => {
 
     const [pokemons, setPokemons] = useState([]);
-    const pokemonsPerPage = 50;
+    const pokemonsPerPage = 200;
     const offset = 0;
 
     useEffect( () => { // useEffect responsável por alterar os componentes quando a API é chamada
@@ -22,6 +22,4 @@ export const GetPokemonsProvider = ({children}) => {
       return <GetPokemonsContext.Provider value={{ pokemonsPerPage, offset, pokemons }}>{children}</GetPokemonsContext.Provider>
       
 }
-
-
 
