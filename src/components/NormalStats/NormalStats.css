@@ -1,0 +1,19 @@
+.normalStats {
+    display: flex;
+    color: var(--detail-text-color);
+    font-weight: bold;
+}
+
+.heightStat {
+    margin-right: 3rem;
+    text-align: center;
+}
+
+.weightStat {
+    text-align: center;
+}
+
+.line {
+    width: 80px;
+    border-bottom: 3px solid var(--detail-text-color);
+}

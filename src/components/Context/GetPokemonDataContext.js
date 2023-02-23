@@ -17,6 +17,7 @@ export const GetPokemonDataProvider = ({children}) => {
     const [xDef, setXDef] = useState("");
     const [spd, setSpd] = useState("");
     const [mainType, setMainType] = useState("normal");
+    const [hide, setHide] = useState(true)
 
     const updatePokemonName = ( name ) => { // função invocada na Searchbar, responsável por receber o nome do pokemon e armazenar na variável "pokemomName" o valor recebido
         setName(name.toLowerCase());
@@ -52,6 +53,8 @@ export const GetPokemonDataProvider = ({children}) => {
                 if (currentPokemon.types && currentPokemon.types.length > 0) {
                     setMainType(currentPokemon.types[0].type.name);
                   }
+                
+                setHide(false);
             } else {
                 setName("");
                 setImg("");
@@ -71,7 +74,7 @@ export const GetPokemonDataProvider = ({children}) => {
         fetchPokemon();
       }, [name]);    
 
-    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, img, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType }}>
+    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, img, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType, hide }}>
                 {children}
             </GetPokemonDataContext.Provider>;
 }

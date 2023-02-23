@@ -4,10 +4,14 @@
     justify-content: center;
     width: 95%;
     height: 60vh;
-    background-color: rgb(229, 247, 113);
     margin: 0 auto;
     border-radius: 0 0 100px 100px;
     position: relative;
+    padding: 1rem 0;
+}
+
+.hideComponent {
+    display: none;
 }
 
 .myPokemon-title {
@@ -30,15 +34,32 @@
     background-image: url('../../../../public/images/close.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    border: none;
+    background-color: none;
+    cursor: pointer;
 }
 
 .pokemonStats {
     display: flex;
-    width: 100%;  
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .pokemonStats-detailContainer {
-    width: 33%;
+    width: 33.33%;
+}
+
+.myPokemon-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15%;
+    width: 33.33%;
+    height: 100%;
 }
 
 .myPokemon-img {
@@ -46,8 +67,22 @@
     align-items: center;
     justify-content: center;
     z-index: 0;
+    width: 33.33%;
+    height: 100%;
+}
+
+.myPokemon-img img {
     width: 100%;
     height: 100%;
     max-width: auto;
     max-height: auto;
+}
+
+.myPokemon-battleStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 33.33%;
+    height: 100%;
 }

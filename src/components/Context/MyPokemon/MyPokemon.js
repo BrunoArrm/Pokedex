@@ -1,30 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './MyPokemon.css';
+import '../../PokemonCard/PokemonCardMainTypes.css';
 import { GetPokemonDataContext } from '../GetPokemonDataContext';
+import NormalStats from '../../NormalStats/NormalStats';
+import BattleStats from '../../BattleStats/BattleStats';
 
 function MyPokemon() {
 
-    const { name, img, id, height, 
-            weight, hp, atk, xAtk, 
-            def, xDef, spd, mainType} = useContext(GetPokemonDataContext);
-
-  return (
-    <div className='myPokemon'>
-        <p className='myPokemon-title'>{name}</p>
-        <button className='mypokemon-closeButton'></button>
-        <div className='pokemonStats'>
-            <div className='myPokemon-stats pokemonStats-detailContainer'>
-                
+    const { name, img, mainType, hide} = useContext(GetPokemonDataContext);
+    
+    return (
+        <>
+          {!hide && (
+            <div className={`myPokemon mainType-${mainType}`}>
+              <p className="myPokemon-title">{name}</p>
+              <button className="mypokemon-closeButton"></button>
+              <div className="pokemonStats">
+                <div className="myPokemon-stats">
+                  <NormalStats />
+                </div>
+                <div className="myPokemon-img">
+                  <img src={img} alt={name} />
+                </div>
+                <div className="myPokemon-battleStats">
+                  <BattleStats />
+                </div>
+              </div>
             </div>
-            <div className='myPokemon-img pokemonStats-detailContainer'>
-                <img src={img}/>
-            </div>
-            <div className='myPokemon-battleStats pokemonStats-detailContainer'>
-
-            </div>
-        </div>
-    </div>
-  )
-}
+          )}
+        </>
+      );
+    }
+    
 
 export default MyPokemon

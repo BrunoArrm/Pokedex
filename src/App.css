@@ -1,5 +1,6 @@
 :root {
   --main-color: red;
+  --detail-text-color: rgb(67, 67, 67);
 }
 
 * {
