@@ -22,55 +22,54 @@ export const GetPokemonDataProvider = ({children}) => {
         setName(name.toLowerCase());
     };
 
-    const fetchPokemon = async () => {
-        if (name !== "") {
-            const currentPokemon = await getPokemonData(name);
-            setName(currentPokemon.name);
-            setImg(currentPokemon.sprites?.other?.dream_world.front_default);
-            setId(currentPokemon.id);
-
-            // Recebe a altura do pokemon e faz o devido tratamento
-            const convertPokemonHeight = (currentPokemon.height / 10).toFixed(2);
-            const adjustPokemonHeight = convertPokemonHeight < 1 ? (convertPokemonHeight * 100) + " cm" : convertPokemonHeight + " m";
-            setHeight(adjustPokemonHeight);
-
-            // Recebe o peso do pokemon e faz o devido tratamento
-            const convertPokemonWeight = (currentPokemon.weight / 10);
-            const adjustPokemonWeight = convertPokemonWeight < 1 ? (convertPokemonWeight * 1000) + " g" : convertPokemonWeight + " kg";
-            setWeight(adjustPokemonWeight);
-
-            // Recebe dados de batalha dos pokemons
-            setHp(currentPokemon.stats[0].base_stat);
-            setAtk(currentPokemon.stats[1].base_stat);
-            setXAtk(currentPokemon.stats[2].base_stat);
-            setDef(currentPokemon.stats[3].base_stat);
-            setXDef(currentPokemon.stats[4].base_stat);
-            setSpd(currentPokemon.stats[5].base_stat);
-
-            // Recebe o tipo principal do pokemon
-            if (currentPokemon.types && currentPokemon.types.length > 0) {
-                setMainType(currentPokemon.types[0].type.name);
-              }
-        } else {
-            setName("");
-            setImg("");
-            setId("");
-            setHeight("");
-            setWeight("");
-            setHp("");
-            setAtk("");
-            setXAtk("");
-            setDef("");
-            setXDef("");
-            setSpd("");
-            setMainType("");
-        }
-    }
-
     useEffect(() => {
-        fetchPokemon();
-    }, [name]);
+        const fetchPokemon = async () => {
+            if (name !== "") {
+                const currentPokemon = await getPokemonData(name);
+                setName(currentPokemon.name);
+                setImg(currentPokemon.sprites?.other?.dream_world.front_default);
+                setId(currentPokemon.id);
     
+                // Recebe a altura do pokemon e faz o devido tratamento
+                const convertPokemonHeight = (currentPokemon.height / 10).toFixed(2);
+                const adjustPokemonHeight = convertPokemonHeight < 1 ? (convertPokemonHeight * 100) + " cm" : convertPokemonHeight + " m";
+                setHeight(adjustPokemonHeight);
+    
+                // Recebe o peso do pokemon e faz o devido tratamento
+                const convertPokemonWeight = (currentPokemon.weight / 10);
+                const adjustPokemonWeight = convertPokemonWeight < 1 ? (convertPokemonWeight * 1000) + " g" : convertPokemonWeight + " kg";
+                setWeight(adjustPokemonWeight);
+    
+                // Recebe dados de batalha dos pokemons
+                setHp(currentPokemon.stats[0].base_stat);
+                setAtk(currentPokemon.stats[1].base_stat);
+                setXAtk(currentPokemon.stats[2].base_stat);
+                setDef(currentPokemon.stats[3].base_stat);
+                setXDef(currentPokemon.stats[4].base_stat);
+                setSpd(currentPokemon.stats[5].base_stat);
+    
+                // Recebe o tipo principal do pokemon
+                if (currentPokemon.types && currentPokemon.types.length > 0) {
+                    setMainType(currentPokemon.types[0].type.name);
+                  }
+            } else {
+                setName("");
+                setImg("");
+                setId("");
+                setHeight("");
+                setWeight("");
+                setHp("");
+                setAtk("");
+                setXAtk("");
+                setDef("");
+                setXDef("");
+                setSpd("");
+                setMainType("");
+            }
+        };
+      
+        fetchPokemon();
+      }, [name]);    
 
     return  <GetPokemonDataContext.Provider value={{ updatePokemonName, img, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType }}>
                 {children}
