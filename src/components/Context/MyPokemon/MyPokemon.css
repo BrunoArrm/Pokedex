@@ -1,0 +1,53 @@
+.myPokemon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 60vh;
+    background-color: rgb(229, 247, 113);
+    margin: 0 auto;
+    border-radius: 0 0 100px 100px;
+    position: relative;
+}
+
+.myPokemon-title {
+    font-size: 10rem;
+    text-transform: uppercase;
+    font-family: 'Tilt Warp', cursive;
+    color: rgba(0, 0, 0, 0.12);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mypokemon-closeButton {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-image: url('../../../../public/images/close.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pokemonStats {
+    display: flex;
+    width: 100%;  
+}
+
+.pokemonStats-detailContainer {
+    width: 33%;
+}
+
+.myPokemon-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-width: auto;
+    max-height: auto;
+}

@@ -5,6 +5,7 @@ import { GetPokemonsProvider } from './components/Context/GetPokemonContext';
 import { GetPokemonDataProvider } from './components/Context/GetPokemonDataContext';
 import Pagination from './components/Pagination/Pagination';
 import { PaginationProvider } from './components/Context/PaginationContext';
+import MyPokemon from './components/Context/MyPokemon/MyPokemon';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <GetPokemonsProvider>
         <GetPokemonDataProvider>
             <Header />
+            <MyPokemon />
             <Pokedex />
             <Pagination />
         </GetPokemonDataProvider>
