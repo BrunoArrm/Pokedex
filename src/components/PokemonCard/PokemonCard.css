@@ -76,7 +76,7 @@
 
 @media (max-width: 520px) {
     .pokemonCard {
-        width: 100%;
+        width: 90%;
     }
 
     .detailContainer{
