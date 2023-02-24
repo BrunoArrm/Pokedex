@@ -6,3 +6,10 @@
     background-color: var(--main-color);
     height: 116px;
 }
+
+@media (max-width: 500px) {
+    .header {
+        flex-direction: column;
+        height: fit-content;
+    }
+}

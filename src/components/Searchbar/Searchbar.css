@@ -30,3 +30,13 @@
 .searchbar button:hover {
     background-size: 80%;
 }
+
+@media (max-width: 500px) {
+    .searchbar {
+        width: 90%;
+    }
+
+    .searchbar button {
+        background-size: 50%;
+    }
+}

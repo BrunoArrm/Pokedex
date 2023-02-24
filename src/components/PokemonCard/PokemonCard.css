@@ -73,3 +73,13 @@
 .type h4 {
     font-size: 0.6rem;
 }
+
+@media (max-width: 520px) {
+    .pokemonCard {
+        width: 100%;
+    }
+
+    .detailContainer{
+        width: 100%;
+    }
+}

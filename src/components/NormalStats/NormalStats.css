@@ -2,10 +2,11 @@
     display: flex;
     color: var(--detail-text-color);
     font-weight: bold;
+    margin-top: 1rem 0;
 }
 
 .heightStat {
-    margin-right: 3rem;
+    margin-right: 5%;
     text-align: center;
 }
 
