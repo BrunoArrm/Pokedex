@@ -10,6 +10,11 @@ function MyPokemon() {
     const { name, mainImg, secImg, mainType, hide, erro} = useContext(GetPokemonDataContext);
     const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
     
+    const backToPokemonCard = () => {
+      const myPokemon = document.getElementById(name);
+      myPokemon.scrollIntoView({behavior: 'smooth', block: "start"});
+  };
+
     return (
         <>
           {
@@ -23,7 +28,7 @@ function MyPokemon() {
             </div> 
           : 
             !hide && (
-              <div className={`myPokemon mainType-${mainType}`}>
+              <div className={`myPokemon mainType-${mainType}`} id="myPokemon">
                 <p className="myPokemon-title">{name}</p>
                 <div className="pokemonStats">
                   <div className="myPokemon-battleStats">
@@ -31,7 +36,7 @@ function MyPokemon() {
                       <NormalStats />
                   </div>
                   <div className="myPokemon-img">
-                    <img src={mainImg ? mainImg : secImg} alt={name} />
+                    <img src={mainImg ? mainImg : secImg} alt={name} onClick={backToPokemonCard} />
                   </div>
                 </div>
               </div>

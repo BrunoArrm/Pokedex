@@ -29,10 +29,12 @@ function PokemonCard( { name } ) {
 
     const handleClickPokemonCard = () => {
         updatePokemonName(name);
+        const myPokemon = document.getElementById("myPokemon");
+        myPokemon.scrollIntoView({behavior: 'smooth', block: "start"});
     };
 
     return (
-        <div className='pokemonCard'>
+        <div className='pokemonCard' id={name}>
             <div onClick={handleClickPokemonCard} className={`detailContainer mainType-${mainType}`}>
                 <div className='details'>
                     <div><h3>{name}</h3></div>

@@ -55,6 +55,7 @@
     z-index: 0;
     width: 50%;
     height: 100%;
+    cursor: pointer;
 }
 
 .myPokemon-img img {
