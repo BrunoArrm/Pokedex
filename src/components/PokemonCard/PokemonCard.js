@@ -35,7 +35,7 @@ function PokemonCard( { name } ) {
 
     return (
         <div className='pokemonCard' id={name}>
-            <div onClick={handleClickPokemonCard} className={`detailContainer mainType-${mainType}`}>
+            <div onClick={handleClickPokemonCard} onPress={handleClickPokemonCard} className={`detailContainer mainType-${mainType}`}>
                 <div className='details'>
                     <div><h3>{name}</h3></div>
                     <div className='details-type'>

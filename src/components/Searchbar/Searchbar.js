@@ -24,7 +24,7 @@ function Searchbar() {
   return (
     <div className='searchbar'>
         <input placeholder='Procurar um monstrinho' value={inputValue} onChange={handleInputChange}></input>
-        <button onClick={handleButtonClick}></button>
+        <button onClick={handleButtonClick} onPress={handleButtonClick}></button>
     </div>
   )
 }

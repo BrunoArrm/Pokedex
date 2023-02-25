@@ -36,7 +36,7 @@ function MyPokemon() {
                       <NormalStats />
                   </div>
                   <div className="myPokemon-img">
-                    <img src={mainImg ? mainImg : secImg} alt={name} onClick={backToPokemonCard} />
+                    <img src={mainImg ? mainImg : secImg} alt={name} onClick={backToPokemonCard} onPress={backToPokemonCard} />
                   </div>
                 </div>
               </div>
