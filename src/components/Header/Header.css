@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 0.5% 0.5%;
     background-color: var(--main-color);
-    height: 116px;
+    height: 20vh;
 }
 
 @media (max-width: 500px) {

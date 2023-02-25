@@ -1,4 +1,5 @@
 import React from 'react';
+import IsLoading from '../IsLoading/IsLoading';
 import Searchbar from '../Searchbar/Searchbar';
 import './Header.css';
 
