@@ -19,6 +19,7 @@ export const GetPokemonDataProvider = ({children}) => {
     const [spd, setSpd] = useState("");
     const [mainType, setMainType] = useState("normal");
     const [hide, setHide] = useState(true)
+    const [erro, setErro] = useState("");
 
     const updatePokemonName = ( name ) => { // função invocada na Searchbar, responsável por receber o nome do pokemon e armazenar na variável "pokemomName" o valor recebido
         setName(name.toLowerCase());
@@ -26,8 +27,14 @@ export const GetPokemonDataProvider = ({children}) => {
 
     useEffect(() => {
         const fetchPokemon = async () => {
-            if (name !== "") {
-                const currentPokemon = await getPokemonData(name);
+            setErro("");
+            const currentPokemon = await getPokemonData(name);
+
+            if (currentPokemon === "Pokemon não encontrado") {
+                console.log("Pokemon não encontrado");
+                setErro("Pokemon não encontrado");
+            } else if (name !== "") {
+                console.log(`Exibindo pokemon: ${name}`)
                 setName(currentPokemon.name);
                 setMainImg(currentPokemon.sprites?.other?.dream_world.front_default);
                 setSecImg(currentPokemon.sprites?.front_default);
@@ -71,13 +78,14 @@ export const GetPokemonDataProvider = ({children}) => {
                 setXDef("");
                 setSpd("");
                 setMainType("");
+                setErro("");
             }
         };
       
         fetchPokemon();
       }, [name]);    
 
-    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, mainImg, secImg, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType, hide }}>
+    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, mainImg, secImg, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType, hide, erro }}>
                 {children}
             </GetPokemonDataContext.Provider>;
 }

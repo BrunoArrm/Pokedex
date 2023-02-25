@@ -18,6 +18,14 @@ export const getPokemonData = async ( pokemon ) => {
         const response = await fetch(url);
         return await response.json();
     } catch (error) {
-        console.log( "getPokemonDataErro: ", error );
+        let erro = error;
+        if (erro.message.indexOf("Not Found")>= 0) {
+            erro = "Pokemon não encontrado";
+            return erro;
+        } else {
+            let erro = "Não deu erro";
+            console.log("Não deu erro");
+            return erro;
+        }
     }
 };
