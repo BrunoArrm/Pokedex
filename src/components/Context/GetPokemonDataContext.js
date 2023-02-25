@@ -6,7 +6,8 @@ export const GetPokemonDataContext = createContext();
 export const GetPokemonDataProvider = ({children}) => {
 
     const [name, setName] = useState(""); // Responsável por armazenar o nome do pokemon que é recebido da Searchbar
-    const [img, setImg] = useState("");
+    const [mainImg, setMainImg] = useState("");
+    const [secImg, setSecImg] = useState("");
     const [id, setId] = useState("");
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
@@ -28,7 +29,8 @@ export const GetPokemonDataProvider = ({children}) => {
             if (name !== "") {
                 const currentPokemon = await getPokemonData(name);
                 setName(currentPokemon.name);
-                setImg(currentPokemon.sprites?.other?.dream_world.front_default);
+                setMainImg(currentPokemon.sprites?.other?.dream_world.front_default);
+                setSecImg(currentPokemon.sprites?.front_default);
                 setId(currentPokemon.id);
     
                 // Recebe a altura do pokemon e faz o devido tratamento
@@ -57,7 +59,8 @@ export const GetPokemonDataProvider = ({children}) => {
                 setHide(false);
             } else {
                 setName("");
-                setImg("");
+                setMainImg("");
+                setSecImg("");
                 setId("");
                 setHeight("");
                 setWeight("");
@@ -74,7 +77,7 @@ export const GetPokemonDataProvider = ({children}) => {
         fetchPokemon();
       }, [name]);    
 
-    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, img, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType, hide }}>
+    return  <GetPokemonDataContext.Provider value={{ updatePokemonName, name, mainImg, secImg, id, height, weight, hp, atk, xAtk, def, xDef, spd, mainType, hide }}>
                 {children}
             </GetPokemonDataContext.Provider>;
 }

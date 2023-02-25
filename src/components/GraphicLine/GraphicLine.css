@@ -11,6 +11,7 @@
     text-align: right;
     width: 2.6rem;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .lineStat-container{
@@ -23,10 +24,12 @@
     height: 10px;
     width: 100px;
     border-radius: 50px;
+    border: 2px solid black
 }
 
 .value {
     width: 2rem;
+    font-weight: bold;
 }
 
 .hp {

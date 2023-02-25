@@ -1,9 +1,9 @@
 import React from 'react';
 import './PokeballRoll.css';
 
-function PokeballRoll() {
+function PokeballRoll(context) {
   return (
-    <div className='pokeball'></div>
+    <div className={"pokeball " + {context}}></div>
   )
 }
 

@@ -1,7 +1,7 @@
 .pokeball {
     width: 75px;
     height: 75px;
-    background-color: yellow;
+    background-color: var(--main-color);
     border-radius: 50%;
     background-image: url("../../../public/images/logo-black.png");
     background-size: contain;

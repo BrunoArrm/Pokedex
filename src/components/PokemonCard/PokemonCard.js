@@ -8,15 +8,19 @@ import { GetPokemonDataContext } from '../Context/GetPokemonDataContext';
 function PokemonCard( { name } ) {
     
     const [mainImg, setMainImg] = useState("");
+    const [secImg, setSecImg] = useState("");
     const [mainType, setMainType] = useState("normal");
     const [secType, setSecType] = useState();
     const { updatePokemonName } = useContext(GetPokemonDataContext);
+    const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
+
 
     useEffect(() => {
         const fetchPokemon = async () => {
             const currentPokemon = await getPokemonData(name);
 
             setMainImg(currentPokemon.sprites?.other?.dream_world.front_default);
+            setSecImg(currentPokemon.sprites?.front_default);
             setMainType(currentPokemon.types[0]?.type.name);
             setSecType(currentPokemon.types.length > 1 ? currentPokemon.types[1]?.type.name : 'notShow');
         };
@@ -38,7 +42,9 @@ function PokemonCard( { name } ) {
                     </div>
                 </div>
             </div>
-            <img className="pokemonImg" src={mainImg} alt={name}/>
+            {secImg ? (
+                <img className="pokemonImg" src={mainImg ? mainImg : secImg} alt={name}/>
+            ) : <img src={logo} alt="PokéApi" title="PokéApi"/> }
         </div>
     );
 }

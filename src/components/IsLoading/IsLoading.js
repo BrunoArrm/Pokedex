@@ -11,4 +11,4 @@ function IsLoading() {
   )
 }
 
-export default IsLoading
+export default IsLoading;

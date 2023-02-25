@@ -7,7 +7,8 @@ import BattleStats from '../BattleStats/BattleStats';
 
 function MyPokemon() {
 
-    const { name, img, mainType, hide} = useContext(GetPokemonDataContext);
+    const { name, mainImg, secImg, mainType, hide} = useContext(GetPokemonDataContext);
+    const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
     
     return (
         <>
@@ -20,7 +21,7 @@ function MyPokemon() {
                     <NormalStats />
                 </div>
                 <div className="myPokemon-img">
-                  <img src={img} alt={name} />
+                  <img src={mainImg ? mainImg : secImg} alt={name} />
                 </div>
               </div>
             </div>
@@ -30,4 +31,4 @@ function MyPokemon() {
     }
     
 
-export default MyPokemon
+export default MyPokemon;
