@@ -12,9 +12,16 @@ function MyPokemon() {
     
     return (
         <>
-        {
-          erro == "Pokemon não encontrado" ? 
-            <div className={`myPokemon mainType-normal`} style={{height: "fit-content"}}>Pokemon "{name}" não foi encontrado!</div> : 
+          {
+            erro == "Pokemon não encontrado" 
+          ? 
+            <div className={`myPokemon mainType-normal`} style={{height: "fit-content"}}>
+              <div className='erro-message-img'></div>
+              <p>
+                Pokemon "{name}" não foi encontrado!
+              </p>
+            </div> 
+          : 
             !hide && (
               <div className={`myPokemon mainType-${mainType}`}>
                 <p className="myPokemon-title">{name}</p>

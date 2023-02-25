@@ -10,6 +10,16 @@
     padding: 1rem 0;
 }
 
+.erro-message-img {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../public/images/warning.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 1rem;
+}
+
 .hideComponent {
     display: none;
 }
