@@ -34,6 +34,7 @@
 @media (max-width: 500px) {
     .searchbar {
         width: 90%;
+        margin: 10px 0;
     }
 
     .searchbar button {
