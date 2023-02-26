@@ -4,6 +4,7 @@ import './PokemonCardMainTypes.css';
 import './PokemonCardAllTypes.css';
 import { getPokemonData } from '../Api/GetPokemonsAPI';
 import { GetPokemonDataContext } from '../Context/GetPokemonDataContext';
+import { GetFavoriteListContext } from '../Context/GetFavoriteListContext';
 
 function PokemonCard( { name } ) {
     
@@ -12,9 +13,9 @@ function PokemonCard( { name } ) {
     const [mainType, setMainType] = useState("normal");
     const [secType, setSecType] = useState();
     const { updatePokemonName } = useContext(GetPokemonDataContext);
+    const { whatToDo } = useContext(GetFavoriteListContext);
     const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
     const [heart, setHeart] = useState("💛");
-
 
     useEffect(() => {
         const fetchPokemon = async () => {
@@ -28,6 +29,12 @@ function PokemonCard( { name } ) {
         fetchPokemon();
     }, [name]);
 
+    const handleClickPokemonCard = () => {
+        updatePokemonName(name);
+        const myPokemon = document.getElementById("myPokemon");
+        myPokemon.scrollIntoView({behavior: 'smooth', block: "start"});
+    };
+    
     useEffect(()=>{
         if(localStorage.getItem(name)) {
             setHeart("❤️")
@@ -36,21 +43,17 @@ function PokemonCard( { name } ) {
         }
     },[])
 
-    const handleClickPokemonCard = () => {
-        updatePokemonName(name);
-        const myPokemon = document.getElementById("myPokemon");
-        myPokemon.scrollIntoView({behavior: 'smooth', block: "start"});
-    };
-
     const handleClickHeartButton = (event) => {
         event.stopPropagation();
         if (localStorage.getItem(name)) {
             localStorage.removeItem(name);
             setHeart("💛")
+            whatToDo(`Adicione: ${name}`)
             console.log(`Desfavoritou: ${name}`);
         } else {
             localStorage.setItem(name, name);
             setHeart("❤️")
+            whatToDo(`Remova: ${name}`)
             console.log(`Favoritou: ${name}`);
         }
     }

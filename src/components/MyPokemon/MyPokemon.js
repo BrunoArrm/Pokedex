@@ -9,11 +9,33 @@ function MyPokemon() {
 
     const { name, mainImg, secImg, mainType, hide, erro} = useContext(GetPokemonDataContext);
     const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
-    
+    const [heart, setHeart] = useState("💛");
+
     const backToPokemonCard = () => {
       const myPokemon = document.getElementById(name);
       myPokemon.scrollIntoView({behavior: 'smooth', block: "start"});
   };
+
+  useEffect(()=>{
+    if(localStorage.getItem(name)) {
+        setHeart("❤️")
+    } else {
+        setHeart("💛")
+    }
+  },[name])
+
+const handleClickHeartButton = (event) => {
+    event.stopPropagation();
+    if (localStorage.getItem(name)) {
+        localStorage.removeItem(name);
+        setHeart("💛")
+        console.log(`Desfavoritou: ${name}`);
+    } else {
+        localStorage.setItem(name, name);
+        setHeart("❤️")
+        console.log(`Favoritou: ${name}`);
+    }
+}
 
     return (
         <>
@@ -30,6 +52,7 @@ function MyPokemon() {
             !hide && (
               <div className={`myPokemon mainType-${mainType}`} id="myPokemon">
                 <p className="myPokemon-title">{name}</p>
+                <button onClick={handleClickHeartButton} onPress={handleClickHeartButton}>{heart}</button>
                 <div className="pokemonStats">
                   <div className="myPokemon-battleStats">
                       <BattleStats />

@@ -6,17 +6,19 @@ import { GetPokemonDataProvider } from './components/Context/GetPokemonDataConte
 import { PaginationProvider } from './components/Context/PaginationContext';
 import MyPokemon from './components/MyPokemon/MyPokemon';
 import Footer from './components/Footer/Footer';
-import { GetFavoriteListProvider } from './components/Context/GetFavoriteList';
+import { GetFavoriteListProvider } from './components/Context/GetFavoriteListContext';
 
 function App() {
   return (
     <PaginationProvider>
       <GetPokemonsProvider>
         <GetPokemonDataProvider>
+          <GetFavoriteListProvider>
             <Header />
             <MyPokemon />
             <Pokedex />
             <Footer />
+          </GetFavoriteListProvider>
         </GetPokemonDataProvider>
       </GetPokemonsProvider>
     </PaginationProvider>

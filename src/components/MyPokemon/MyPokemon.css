@@ -35,6 +35,15 @@
     transform: translateX(-10%);
 }
 
+.myPokemon button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
 .pokemonStats {
     display: flex;
     align-items: center;
