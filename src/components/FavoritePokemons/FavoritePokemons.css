@@ -1,0 +1,12 @@
+.favoritePokemons {
+    background-color: rgb(212, 212, 212);
+    color: white;
+    text-align: center;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.favoritePokemons-list {
+    display: flex;
+    flex-wrap: wrap;
+}

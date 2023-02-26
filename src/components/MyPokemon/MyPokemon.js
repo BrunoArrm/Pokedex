@@ -4,10 +4,12 @@ import '../PokemonCard/PokemonCardMainTypes.css';
 import { GetPokemonDataContext } from '../Context/GetPokemonDataContext';
 import NormalStats from '../NormalStats/NormalStats';
 import BattleStats from '../BattleStats/BattleStats';
+import { GetFavoriteListContext } from '../Context/GetFavoriteListContext';
 
 function MyPokemon() {
 
     const { name, mainImg, secImg, mainType, hide, erro} = useContext(GetPokemonDataContext);
+    const { whatToDo } = useContext(GetFavoriteListContext);
     const logo = "https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png";
     const [heart, setHeart] = useState("💛");
 
@@ -28,11 +30,13 @@ const handleClickHeartButton = (event) => {
     event.stopPropagation();
     if (localStorage.getItem(name)) {
         localStorage.removeItem(name);
-        setHeart("💛")
+        setHeart("💛");
+        whatToDo(`Adicione: ${name}`);
         console.log(`Desfavoritou: ${name}`);
     } else {
         localStorage.setItem(name, name);
-        setHeart("❤️")
+        setHeart("❤️");
+        whatToDo(`Remova: ${name}`);
         console.log(`Favoritou: ${name}`);
     }
 }
